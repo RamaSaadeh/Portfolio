@@ -1,0 +1,1481 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Rama Saadeh — Product & Design</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Helvetica+Neue:wght@300;400;500&family=Italiana&family=Space+Mono:wght@400;700&family=Libre+Baskerville:wght@400;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Italiana&family=Space+Mono&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=IM+Fell+English:ital@0;1&display=swap" rel="stylesheet">
+
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --bg:       #F7F4EFgvb n;
+  --paper:    #EDE8DC;
+  --ink:      #1C1915;
+  --brown:    #2E2218;
+  --mid:      #6B5E4E;
+  --light:    #9E9080;
+  --rule:     #C8BFB0;
+  --olive:    #4A4A2A;
+  --olive-lt: #7A7A4A;
+  --red:      #8B2E1A;
+  --red-lt:   #B54030;
+  --cream:    #F5F0E8;
+  --tan:      #D4C8B0;
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+  background: var(--bg);
+  color: var(--ink);
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-weight: 300;
+  font-size: 13px;
+  line-height: 1.6;
+  letter-spacing: 0.01em;
+  overflow-x: hidden;
+}
+
+/* GRAIN */
+body::after {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");
+  pointer-events: none;
+  z-index: 9998;
+  mix-blend-mode: multiply;
+}
+
+a { text-decoration: none; color: inherit; }
+hr { border: none; border-top: 1px solid var(--rule); }
+
+/* ──────────────────────────────
+   NAV
+────────────────────────────── 
+nav {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  z-index: 500;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 40px;
+  height: 52px;
+  background: rgba(240,235,225,0.95);
+  backdrop-filter: blur(8px);
+  border-bottom: 1px solid var(--rule);
+}
+
+.nav-id {
+  font-size: 11px;
+  font-weight: 400;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--brown);
+}
+
+.nav-right {
+  display: flex;
+  align-items: center;
+  gap: 32px;
+}
+
+.nav-link {
+  font-size: 10px;
+  font-weight: 400;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--mid);
+  transition: color 0.2s;
+}
+.nav-link:hover { color: var(--red-lt); }
+
+
+@keyframes blink { 0%,100%{opacity:1} 50%{opacity:.3} }*/
+
+/* ──────────────────────────────
+   HERO — full editorial masthead
+────────────────────────────── */
+.hero {
+  padding-top: 0px;
+  min-height: 100vh;
+  display: grid;
+  grid-template-rows: 1fr auto;
+  border-bottom: 1px solid var(--rule);
+  position: relative;
+  overflow: hidden;
+}
+
+.hero-inner {
+  display: grid;
+  grid-template-columns: 1fr 2px 1fr;
+  min-height: calc(100vh - 52px);
+}
+
+.hero-col-left {
+  padding: 64px 40px 60px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  border-right: 1px solid var(--rule);
+}
+
+.hero-vol {
+  font-size: 10px;
+  font-weight: 400;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--light);
+}
+
+.hero-masthead {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 40px 0;
+}
+
+.hero-name {
+  font-family: 'Libre Baskerville', Georgia, serif;
+  font-size: clamp(72px, 10vw, 120px);
+  font-weight: 400;
+  line-height: 0.92;
+  letter-spacing: -0.02em;
+  color: var(--brown);
+}
+
+.hero-name-sub {
+  font-family: 'Libre Baskerville', Georgia, serif;
+  font-size: clamp(72px, 10vw, 120px);
+  font-weight: 400;
+  line-height: 0.92;
+  letter-spacing: -0.02em;
+  color: var(--brown);
+  padding-left: 48px;
+}
+
+.hero-rule-block {
+  margin: 32px 0;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.hero-rule-line {
+  height: 1px;
+  background: var(--rule);
+}
+
+.hero-rule-line.thick {
+  height: 3px;
+  background: var(--olive-lt);
+}
+
+.hero-desc {
+  font-size: 12px;
+  font-weight: 300;
+  line-height: 1.85;
+  color: var(--mid);
+  max-width: 340px;
+}
+
+.hero-footer-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+}
+
+.hero-loc {
+  font-size: 10px;
+  font-weight: 400;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--light);
+}
+
+.hero-cta {
+  font-size: 10px;
+  font-weight: 400;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--red);
+  border-bottom: 1px solid var(--red);
+  padding-bottom: 3px;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  transition: gap 0.25s;
+}
+.hero-cta:hover { gap: 14px; }
+
+.hero-divider { width: 2px; }
+
+.hero-col-right {
+  padding: 64px 0 60px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+/* editorial index panel */
+.hero-index {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.index-header {
+  padding: 0 40px 24px;
+  border-bottom: 3px solid var(--brown);
+  font-size: 10px;
+  font-weight: 400;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--light);
+}
+
+.index-row {
+  display: grid;
+  grid-template-columns: 36px 1fr auto;
+  align-items: start;
+  gap: 16px;
+  padding: 20px 40px;
+  border-bottom: 1px solid var(--rule);
+  transition: background 0.15s;
+}
+
+.index-row:hover {
+  background:var(--olive-lt);
+}
+.index-row:hover .index-title{
+  color:var(--cream);
+}
+.index-row:hover .index-tag{
+  color:var(--paper);
+  border: var(-paper)
+}
+.index-row:hover .index-meta{
+  color:var(--tan);
+}
+
+
+.index-n {
+  font-size: 9px;
+  font-weight: 400;
+  letter-spacing: 0.12em;
+  color: var(--tan);
+  padding-top: 3px;
+}
+
+.index-body {}
+
+.index-title {
+  font-size: 18px;
+  font-weight: 300;
+  letter-spacing: 0.01em;
+  color: var(--brown);
+  margin-bottom: 4px;
+  font-family: 'Libre Baskerville', Georgia, serif;
+}
+
+.index-meta {
+  font-size: 9px;
+  font-weight: 400;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--light);
+}
+
+.index-tag {
+  font-size: 9px;
+  font-weight: 400;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--mid);
+  padding: 4px 10px;
+  border: 1px solid var(--rule);
+  align-self: start;
+  margin-top: 2px;
+  white-space: nowrap;
+}
+
+.hero-right-footer {
+  padding: 24px 40px 0;
+  border-top: 1px solid var(--rule);
+  font-size: 10px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--light);
+}
+
+/* ──────────────────────────────
+   TICKER
+────────────────────────────── */
+.ticker {
+  overflow: hidden;
+  background: var(--brown);
+  padding: 11px 0;
+  border-bottom: 1px solid rgba(255,255,255,0.06);
+}
+
+.ticker-track {
+  display: flex;
+  width: max-content;
+  animation: tick 30s linear infinite;
+}
+
+.ticker-item {
+  padding: 0 28px;
+  font-size: 10px;
+  font-weight: 400;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: rgba(240,235,225,0.55);
+  white-space: nowrap;
+  display: flex;
+  align-items: center;
+  gap: 28px;
+}
+
+.ticker-item::after {
+  content: '·';
+  color: var(--cream);
+}
+
+@keyframes tick { 0%{transform:translateX(0)} 100%{transform:translateX(-50%)} }
+
+/* ──────────────────────────────
+   SECTION STRUCTURE
+────────────────────────────── */
+.section-label {
+  font-size: 9px;
+  font-weight: 400;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--light);
+}
+
+.section-heading {
+  font-family: 'Libre Baskerville', Georgia, serif;
+  font-size: clamp(28px, 3vw, 42px);
+  font-weight: 400;
+  line-height: 1.1;
+  letter-spacing: -0.01em;
+  color: var(--brown);
+}
+
+/* ──────────────────────────────
+   ABOUT
+────────────────────────────── */
+#about {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  border-bottom: 1px solid var(--rule);
+}
+
+.about-left {
+  padding: 80px 40px;
+  border-right: 1px solid var(--rule);
+}
+
+.about-label {
+  font-size: 9px;
+  font-weight: 400;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--light);
+  margin-bottom: 40px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.about-label::before {
+  content: '';
+  display: block;
+  width: 24px;
+  height: 1px;
+  background: var(--rule);
+}
+
+.about-text {
+  font-family: 'Libre Baskerville', Georgia, serif;
+  font-size: 20px;
+  font-weight: 400;
+  line-height: 1.7;
+  color: var(--brown);
+  max-width: 480px;
+}
+
+
+.about-right {
+  padding: 80px 40px;
+  display: flex;
+  flex-direction: column;
+  gap: 48px;
+}
+
+/* stat block 
+.stat-block {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  border: 1px solid var(--rule);
+}
+
+.stat-cell {
+  padding: 28px 24px;
+  border-right: 1px solid var(--rule);
+  border-bottom: 1px solid var(--rule);
+}
+
+.stat-cell:nth-child(2n) { border-right: none; }
+.stat-cell:nth-last-child(-n+2) { border-bottom: none; }
+
+.stat-n {
+  font-family: 'Italiana', serif;
+  font-size: 48px;
+  line-height: 1;
+  color: var(--brown);
+  margin-bottom: 6px;
+}
+
+.stat-l {
+  font-size: 9px;
+  font-weight: 400;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--light);
+}*/
+
+/* skills */
+.skills-block {}
+
+.skills-title {
+  font-size: 9px;
+  font-weight: 400;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--light);
+  margin-bottom: 16px;
+  padding: 300px 40px;
+  padding-bottom: 40px;
+  border-bottom: 1px solid var(--rule);
+}
+
+.skills-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  padding: 0px 40px;
+}
+
+.skill {
+  font-size: 9px;
+  font-weight: 400;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--mid);
+  padding: 6px 12px;
+  border: 1px solid var(--rule);
+  background: transparent;
+  transition: background 0.15s, color 0.15s;
+}
+
+.skill:hover {
+  background: var(--olive-lt);
+  color: var(--cream);
+  border-color: var(--olive-lt);
+}
+
+/* ──────────────────────────────
+   WORK — full-width editorial grid
+────────────────────────────── */
+#work {
+  border-bottom: 1px solid var(--rule);
+}
+
+.work-header {
+  display: grid;
+  grid-template-columns: 80px 1fr;
+  padding: 48px 40px 32px;
+  border-bottom: 3px solid var(--brown);
+  align-items: end;
+  gap: 24px;
+}
+
+.work-header-num {
+  font-family: 'Italiana', serif;
+  font-size: 72px;
+  line-height: 1;
+  color: var(--rule);
+}
+
+.work-header-right {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  gap: 8px;
+}
+
+/* work item */
+.work-item {
+  display: grid;
+  grid-template-columns: 80px 1fr 1fr 48px;
+  min-height: 220px;
+  border-bottom: 1px solid var(--rule);
+  transition: background 0.2s;
+  cursor: pointer;
+}
+
+.work-item:hover { background: rgba(44,34,24,0.03); }
+.work-item:last-child { border-bottom: none; }
+
+.work-n {
+  padding: 32px 0 32px 40px;
+  display: flex;
+  align-items: flex-start;
+  font-size: 10px;
+  font-weight: 400;
+  letter-spacing: 0.1em;
+  color: var(--tan);
+  border-right: 1px solid var(--rule);
+}
+
+.work-left {
+  padding: 32px 40px;
+  border-right: 1px solid var(--rule);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.work-title {
+  font-family: 'Libre Baskerville', Georgia, serif;
+  font-size: 28px;
+  font-weight: 400;
+  letter-spacing: -0.01em;
+  color: var(--brown);
+  margin-bottom: 8px;
+}
+
+.work-org {
+  font-size: 10px;
+  font-weight: 400;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--light);
+  margin-bottom: 24px;
+}
+
+.work-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.chip {
+  font-size: 9px;
+  font-weight: 400;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--mid);
+  padding: 4px 10px;
+  border: 1px solid var(--rule);
+}
+
+/* colored chip variant */
+.chip-red {
+  border-color: var(--red);
+  color: var(--red);
+}
+
+.chip-olive {
+  border-color: var(--olive-lt);
+  color: var(--olive-lt);
+}
+
+.work-right {
+  padding: 32px 40px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  border-right: 1px solid var(--rule);
+}
+
+.work-body {
+  font-size: 12px;
+  font-weight: 300;
+  line-height: 1.85;
+  color: var(--mid);
+}
+
+.work-body p + p { margin-top: 12px; }
+
+.work-arrow {
+  display: flex;
+  align-items: flex-start;
+  padding: 32px 16px;
+  font-size: 16px;
+  color: var(--rule);
+  transition: color 0.2s, transform 0.2s;
+}
+
+.work-item:hover .work-arrow {
+  color: var(--red);
+  transform: translate(3px, -3px);
+}
+
+/* ──────────────────────────────
+   CASE STUDY IMAGES — work showcase
+────────────────────────────── */
+/* Wrapper to keep the label stationary at the top */
+.showcase-wrapper {
+  position: relative;
+  background: var(--brown);
+  border-bottom: 1px solid var(--rule);
+}
+
+.work-showcase {
+  display: flex;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  
+  /* Increased top padding (120px) to give the label more breathing room */
+  /* padding: top right bottom left */
+  padding: 120px 40px 80px; 
+  gap: 60px;
+  
+  background: var(--brown);
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+}
+
+.work-showcase::-webkit-scrollbar { display: none; }
+
+.showcase-label {
+  position: absolute;
+  top: 40px; /* Original was 32px, increased slightly for the larger scale */
+  left: 40px;
+  font-size: 9px;
+  font-weight: 400;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: rgba(240,235,225,0.4);
+  z-index: 10;
+}
+
+/* BIGGER CARDS: Increased from 500px to 850px to match the original grid impact */
+.work-showcase > div {
+  flex: 0 0 850px; 
+  scroll-snap-align: start;
+}
+
+.showcase-img {
+  width: 100%;
+  aspect-ratio: 16/10;
+  background: #3A2E26;
+  overflow: hidden;
+  display: block;
+}
+
+/* Remove the default border from all iframes [35, 37] */
+iframe {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border: none !important;
+}
+
+.showcase-cap {
+  padding: 12px 0 0;
+  font-size: 9px;
+  font-weight: 400;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: rgba(240,235,225,0.45);
+}
+
+.work-showcase-link {
+  font-size: 10px;
+  font-weight: 400;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--olive-lt);
+  border-bottom: 1px solid var(--olive-lt);
+  padding-bottom: 2px;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  transition: gap 0.2s;
+}
+
+.work-showcase-link:hover { gap: 14px; }
+.work-showcase-link::after { content: '↗'; }
+
+/* ──────────────────────────────
+   PROJECTS
+────────────────────────────── */
+#projects {
+  border-bottom: 1px solid var(--rule);
+}
+
+.projects-header {
+  padding: 48px 40px 32px;
+  border-bottom: 3px solid var(--brown);
+  display: grid;
+  grid-template-columns: 80px 1fr;
+  gap: 24px;
+  align-items: end;
+}
+
+.projects-header-num {
+  font-family: 'Italiana', serif;
+  font-size: 72px;
+  line-height: 1;
+  color: var(--rule);
+}
+
+.projects-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+
+.proj-card {
+  padding: 48px 40px;
+  border-right: 1px solid var(--rule);
+  border-bottom: 1px solid var(--rule);
+}
+
+.proj-card:nth-child(2n) { border-right: none; }
+.proj-card:nth-last-child(-n+2) { border-bottom: none; }
+
+.proj-status {
+  display: inline-block;
+  font-size: 9px;
+  font-weight: 400;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--olive-lt);
+  border: 1px solid var(--olive-lt);
+  padding: 3px 9px;
+  margin-bottom: 20px;
+}
+
+.proj-status.complete {
+  color: var(--mid);
+  border-color: var(--rule);
+}
+
+.proj-type {
+  font-size: 9px;
+  font-weight: 400;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--light);
+  margin-bottom: 16px;
+}
+
+.proj-title {
+  font-family: 'Libre Baskerville', Georgia, serif;
+  font-size: 22px;
+  font-weight: 400;
+  line-height: 1.35;
+  color: var(--brown);
+  margin-bottom: 16px;
+  letter-spacing: -0.01em;
+}
+
+.proj-body {
+  font-size: 12px;
+  font-weight: 300;
+  line-height: 1.85;
+  color: var(--mid);
+  margin-bottom: 28px;
+}
+
+.proj-link {
+  font-size: 10px;
+  font-weight: 400;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--red);
+  border-bottom: 1px solid var(--red);
+  padding-bottom: 2px;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  transition: gap 0.2s;
+}
+
+.proj-link:hover { gap: 14px; }
+.proj-link::after { content: '↗'; }
+
+.proj-link-inactive {
+  font-size: 10px;
+  font-weight: 400;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--tan);
+  border-bottom: 1px solid var(--rule);
+  padding-bottom: 2px;
+}
+
+/* ──────────────────────────────
+   BACKGROUND — dark panel
+────────────────────────────── */
+#background {
+  background: var(--brown);
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  border-bottom: 1px solid rgba(255,255,255,0.06);
+}
+
+.bg-col {
+  padding: 80px 40px;
+}
+
+.bg-col:first-child {
+  border-right: 1px solid rgba(255,255,255,0.08);
+}
+
+.bg-section-label {
+  font-size: 9px;
+  font-weight: 400;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: rgba(240,235,225,0.35);
+  margin-bottom: 40px;
+  padding-bottom: 16px;
+  border-bottom: 1px solid rgba(255,255,255,0.08);
+}
+
+.bg-item {
+  padding: 24px 0;
+  border-bottom: 1px solid rgba(255,255,255,0.06);
+}
+
+.bg-item:last-child { border-bottom: none; }
+
+.bg-item-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  margin-bottom: 6px;
+}
+
+.bg-item-title {
+  font-family: 'Libre Baskerville', Georgia, serif;
+  font-size: 19px;
+  font-weight: 400;
+  color: rgba(240,235,225,0.9);
+}
+
+.bg-item-date {
+  font-size: 9px;
+  letter-spacing: 0.12em;
+  color: rgba(240,235,225,0.3);
+}
+
+.bg-item-sub {
+  font-size: 9px;
+  font-weight: 400;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: rgba(240,235,225,0.4);
+  margin-bottom: 10px;
+}
+
+.bg-item-desc {
+  font-size: 11px;
+  font-weight: 300;
+  line-height: 1.75;
+  color: rgba(240,235,225,0.5);
+}
+
+/* ──────────────────────────────
+   FOOTER
+────────────────────────────── */
+footer {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  border-top: 3px solid var(--brown);
+}
+
+.footer-left {
+  padding: 80px 40px;
+  border-right: 1px solid var(--rule);
+}
+
+.footer-headline {
+  font-family: 'Libre Baskerville', Georgia, serif;
+  font-size: clamp(38px, 5vw, 68px);
+  font-weight: 400;
+  line-height: 1.05;
+  letter-spacing: -0.02em;
+  color: var(--brown);
+  margin-bottom: 40px;
+}
+
+.footer-email {
+  font-size: 12px;
+  font-weight: 300;
+  letter-spacing: 0.06em;
+  color: var(--ink);
+  border-bottom: 1px solid var(--olive-lt);
+  padding-bottom: 4px;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  transition: gap 0.2s;
+}
+
+.footer-email:hover { gap: 16px; }
+.footer-email::after { content: '→'; font-size: 14px; }
+
+.footer-right {
+  padding: 80px 40px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.footer-links {
+  display: flex;
+  flex-direction: column;
+}
+
+.footer-link {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 18px 0;
+  border-bottom: 1px solid var(--rule);
+  font-size: 10px;
+  font-weight: 400;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--olive-lt);
+  transition: color 0.2s;
+}
+
+.footer-link:hover { color: var(--brown); }
+
+.footer-credit {
+  font-size: 10px;
+  font-weight: 300;
+  letter-spacing: 0.1em;
+  color: var(--olive-lt);
+  margin-top: 48px;
+}
+
+/* ──────────────────────────────
+   FADE IN
+────────────────────────────── */
+.appear {
+  opacity: 0;
+  transform: translateY(18px);
+  transition: opacity 0.65s ease, transform 0.65s ease;
+}
+
+.appear.in {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ──────────────────────────────
+   RESPONSIVE
+────────────────────────────── */
+@media (max-width: 860px) {
+  nav { padding: 0 20px; }
+  .nav-right .nav-link:not(:last-child) { display: none; }
+
+  .hero-inner {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto auto;
+  }
+  .hero-col-left { padding: 48px 20px; border-right: none; border-bottom: 1px solid var(--rule); }
+  .hero-divider { display: none; }
+  .hero-col-right { padding: 0; }
+  .index-header, .index-row { padding-left: 20px; padding-right: 20px; }
+  .hero-right-footer { padding: 20px; }
+
+  #about { grid-template-columns: 1fr; }
+  .about-left { border-right: none; border-bottom: 1px solid var(--rule); padding: 48px 20px; }
+  .about-right { padding: 48px 20px; }
+
+  .work-header, .projects-header { padding: 32px 20px; grid-template-columns: 1fr; }
+  .work-header-num, .projects-header-num { display: none; }
+
+  .work-item { grid-template-columns: 1fr; min-height: auto; }
+  .work-n { border-right: none; padding: 24px 20px 0; }
+  .work-left { padding: 16px 20px; border-right: none; border-bottom: 1px solid var(--rule); }
+  .work-right { padding: 20px; border-right: none; }
+  .work-arrow { display: none; }
+
+  .work-showcase { grid-template-columns: 1fr; padding: 40px 20px; }
+
+  #projects .projects-grid { grid-template-columns: 1fr; }
+  .proj-card { border-right: none; padding: 40px 20px; }
+  .proj-card:nth-last-child(1) { border-bottom: none; }
+
+  #background { grid-template-columns: 1fr; }
+  .bg-col { padding: 48px 20px; }
+  .bg-col:first-child { border-right: none; border-bottom: 1px solid rgba(255,255,255,0.08); }
+
+  footer { grid-template-columns: 1fr; }
+  .footer-left { padding: 48px 20px; border-right: none; border-bottom: 1px solid var(--rule); }
+  .footer-right { padding: 48px 20px; }
+}
+</style>
+</head>
+<body>
+
+<!-- NAV 
+<nav>
+  <span class="nav-id">Rama Saadeh</span>
+  <div class="nav-right">
+    <a href="#about" class="nav-link">About</a>
+    <a href="#work" class="nav-link">Work</a>
+    <a href="#projects" class="nav-link">Projects</a>
+    <a href="#contact" class="nav-link">Contact</a>
+    </span>
+  </div>
+</nav> -->
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-inner">
+
+    <!-- LEFT -->
+    <div class="hero-col-left">
+      <span class="hero-vol appear">Computer Science — Loughborough University — 2025</span>
+
+      <div class="hero-masthead appear" style="transition-delay:.1s">
+        <div class="hero-name">Rama</div>
+        <div class="hero-name-sub">Saadeh</div>
+
+        <div class="hero-rule-block">
+          <div class="hero-rule-line thick"></div>
+          <div class="hero-rule-line"></div>
+        </div>
+
+        <p class="hero-desc">
+          Product-minded CS graduate based in Dubai. Working at the boundary of technical detail and user reality — building things that make sense for the people using them, not just the people building them.
+        </p>
+      </div>
+
+      <div class="hero-footer-row appear" style="transition-delay:.2s">
+        <span class="hero-loc">Dubai, UAE</span>
+        <a href="#work" class="hero-cta">View Work</a>
+      </div>
+    </div>
+
+    <div class="hero-divider"></div>
+
+    <!-- RIGHT — editorial index -->
+    <div class="hero-col-right appear" style="transition-delay:.15s">
+      <div class="hero-index">
+        <div class="index-header">Contents</div>
+
+        <a href="#work" class="index-row">
+          <span class="index-n">01</span>
+          <div class="index-body">
+            <div class="index-title">Beit La Beit</div>
+            <div class="index-meta">Final Year Project · 2025</div>
+          </div>
+          <span class="index-tag">Product Design</span>
+        </a>
+
+        <a href="#work" class="index-row">
+          <span class="index-n">02</span>
+          <div class="index-body">
+            <div class="index-title">AI Film — 1B Summit</div>
+            <div class="index-meta">Redirect Tech · 2024</div>
+          </div>
+          <span class="index-tag">Prompt Eng.</span>
+        </a>
+
+        <a href="#work" class="index-row">
+          <span class="index-n">03</span>
+          <div class="index-body">
+            <div class="index-title">Skill Store</div>
+            <div class="index-meta">Ongoing · Product</div>
+          </div>
+          <span class="index-tag">Product</span>
+        </a>
+
+        <a href="#projects" class="index-row">
+          <span class="index-n">04</span>
+          <div class="index-body">
+            <div class="index-title">Writing & Analysis</div>
+            <div class="index-meta">In Progress</div>
+          </div>
+          <span class="index-tag">In Progress</span>
+        </a>
+      </div>
+
+      <div class="hero-right-footer">
+        Open to product, design, and technical roles
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- TICKER -->
+<div class="ticker">
+  <div class="ticker-track">
+    <span class="ticker-item">Product Design</span>
+    <span class="ticker-item">Figma</span>
+    <span class="ticker-item">Prompt Engineering</span>
+    <span class="ticker-item">User Research</span>
+    <span class="ticker-item">Agile</span>
+    <span class="ticker-item">Systems Thinking</span>
+    <span class="ticker-item">Data Privacy</span>
+    <span class="ticker-item">API Integration</span>
+    <span class="ticker-item">UX Writing</span>
+    <span class="ticker-item">Framer</span>
+    <span class="ticker-item">Python</span>
+    <span class="ticker-item">SQL</span>
+    <span class="ticker-item">WCAG 2.1</span>
+    <span class="ticker-item">Product Design</span>
+    <span class="ticker-item">Figma</span>
+    <span class="ticker-item">Prompt Engineering</span>
+    <span class="ticker-item">User Research</span>
+    <span class="ticker-item">Agile</span>
+    <span class="ticker-item">Systems Thinking</span>
+    <span class="ticker-item">Data Privacy</span>
+    <span class="ticker-item">API Integration</span>
+    <span class="ticker-item">UX Writing</span>
+    <span class="ticker-item">Framer</span>
+    <span class="ticker-item">Python</span>
+    <span class="ticker-item">SQL</span>
+    <span class="ticker-item">WCAG 2.1</span>
+  </div>
+</div>
+
+<!-- ABOUT -->
+<div id="about">
+  <div class="about-left appear">
+    <div class="about-label">Profile</div>
+    <p class="about-text">
+      I studied Computer Science at Loughborough, which gave me the technical vocabulary. What actually interests me is the space between how a system works and how a person experiences it.
+      <br><br>
+      I've been working in Dubai across product and tech roles while finishing my degree. I'm drawn to early-stage products where things are still being figured out: real constraints, decisions that matter, messy briefs.
+      <br><br>
+      I take work seriously without being precious about it. <strong>I like understanding why before touching anything.</strong>
+    </p>
+  </div>
+
+<!-- 
+  <div class="about-right appear" style="transition-delay:.1s">
+    <div class="stat-block">
+      <div class="stat-cell">
+        <div class="stat-n">3</div>
+        <div class="stat-l">Active Roles</div>
+      </div>
+      <div class="stat-cell">
+        <div class="stat-n">2</div>
+        <div class="stat-l">Industries</div>
+      </div>
+      <div class="stat-cell">
+        <div class="stat-n">1</div>
+        <div class="stat-l">AI Award Film</div>
+      </div>
+      <div class="stat-cell">
+        <div class="stat-n">0</div>
+        <div class="stat-l">Times Settled</div>
+      </div>
+    </div>
+-->
+
+    <div class="skills-block">
+      <div class="skills-title">Competencies</div>
+      <div class="skills-grid">
+        <span class="skill">Figma</span>
+        <span class="skill">Framer</span>
+        <span class="skill">Prompt Engineering</span>
+        <span class="skill">User Research</span>
+        <span class="skill">UX / UI</span>
+        <span class="skill">Product Strategy</span>
+        <span class="skill">Agile</span>
+        <span class="skill">API Integration</span>
+        <span class="skill">Data Privacy</span>
+        <span class="skill">Python</span>
+        <span class="skill">SQL</span>
+        <span class="skill">WCAG 2.1</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- WORK -->
+<section id="work">
+  <div class="work-header appear">
+    <div class="work-header-num">01</div>
+    <div class="work-header-right">
+      <span class="section-label">Selected Work</span>
+      <h2 class="section-heading">Projects & Roles</h2>
+    </div>
+  </div>
+
+  <!-- BEIT LA BEIT -->
+  <div class="work-item appear">
+    <div class="work-n">01</div>
+    <div class="work-left">
+      <div>
+        <h3 class="work-title">Beit La Beit</h3>
+        <p class="work-org">Final Year Project — Loughborough University, 2025</p>
+        <div class="work-chips">
+          <span class="chip chip-red">Product Design</span>
+          <span class="chip">Framer</span>
+          <span class="chip">UX Research</span>
+          <span class="chip">Figma</span>
+        </div>
+      </div>
+    </div>
+    <div class="work-right">
+      <div class="work-body">
+        <p>Designed and prototyped a delivery booking and payment platform for homemade micro-businesses in Dubai — a gap no existing product properly addresses.</p>
+        <p>Conducted primary research across three stakeholder groups: business owners, delivery executives, and customers. Built a high-fidelity bilingual (English/Arabic) interactive prototype in Framer, mapping 22 functional requirements from research through to tested prototype.</p>
+        <p>Scored above DHL, Aramex, and Fetchr on cost-of-ownership. Closest competitor in functionality to DHL at a fraction of the infrastructure overhead.</p>
+      </div>
+    </div>
+    <div class="work-arrow">↗</div>
+  </div>
+
+  <!-- AI FILM -->
+  <a href="https://youtu.be/DkIgQywGrwE?si=TJKZJTPBeAd4gtY3" target="_blank" rel="noopener" class="work-item appear" style="text-decoration:none;color:inherit">
+    <div class="work-n">02</div>
+    <div class="work-left">
+      <div>
+        <h3 class="work-title">AI Film Award</h3>
+        <p class="work-org">Redirect Tech — 1 Billion Followers Summit, 2024</p>
+        <div class="work-chips">
+          <span class="chip chip-olive">Prompt Engineering</span>
+          <span class="chip">Gemini</span>
+          <span class="chip">Video Production</span>
+        </div>
+      </div>
+    </div>
+    <div class="work-right">
+      <div class="work-body">
+        <p>Produced a short film entirely using Gemini — from script to final edit. Entered as part of an AI film competition at the 1 Billion Followers Summit.</p>
+        <p>Engineered structured JSON prompts through iterative testing, wrote the script, generated and edited the footage. No prior video production background. The constraint was the point.</p>
+      </div>
+    </div>
+    <div class="work-arrow">↗</div>
+  </a>
+
+  <!-- SKILL STORE -->
+  <div class="work-item appear">
+    <div class="work-n">03</div>
+    <div class="work-left">
+      <div>
+        <h3 class="work-title">Skill Store</h3>
+        <p class="work-org">Product Role — Dubai, Ongoing</p>
+        <div class="work-chips">
+          <span class="chip">Product</span>
+          <span class="chip">Figma</span>
+          <span class="chip">Third-party Integration</span>
+          <span class="chip">Compliance</span>
+        </div>
+      </div>
+    </div>
+    <div class="work-right">
+      <div class="work-body">
+        <p>Working closely with founders on product — specifically the third-party integration feature. Designed the integration page in Figma and resolved a live Kit integration issue brought in by a creator client.</p>
+        <p>Dug into the legal side: data privacy requirements, collection disclosures, and what's actually required for compliance. The work that doesn't show up in the UI but determines whether the product holds up.</p>
+      </div>
+    </div>
+    <div class="work-arrow">↗</div>
+  </div>
+</section>
+
+<<!-- WRAPPER: Keeps the label stationary -->
+<div style="position: relative; background: var(--brown);">
+  <span class="showcase-label">Selected Works</span>
+
+  <div class="work-showcase appear">
+    <!-- CARD 1 -->
+    <div>
+      <div style="width:100%; aspect-ratio:16/10; background:#3A2E26; overflow:hidden;">
+        <img src="/Users/rama/Desktop/uni/docs/portfolio/BeitLaBeitCover.png" style="width: 100%; height: 100%; object-fit: cover;" alt="Beit La Beit">
+      </div>
+      <p class="showcase-cap">Beit La Beit — High-fidelity prototype, Framer, 2025</p>
+      <a href="BeitLaBeitDemo.pdf" target="_blank" class="work-showcase-link">View Project</a>
+    </div>
+
+    <!-- CARD 2 -->
+    <div>
+      <div style="width:100%; aspect-ratio:16/10; background:#3A2E26; overflow:hidden;">
+        <iframe style="width: 100%; height: 100%; border: none;" 
+                src="https://www.youtube-nocookie.com/embed/DkIgQywGrwE" 
+                referrerpolicy="strict-origin-when-cross-origin" 
+                allowfullscreen>
+        </iframe>
+      </div>
+      <p class="showcase-cap">Skill Store — Kit integration flow, Figma, 2024</p>
+      <a href="#" class="work-showcase-link">View Figma Frame</a>
+    </div>
+    
+    <!-- More cards... -->
+<div>
+      <div style="width:100%; aspect-ratio:16/10; background:#3A2E26; overflow:hidden;">
+        <iframe style="width: 100%; height: 100%; border: none;" 
+                src="/Users/rama/Desktop/uni/docs/portfolio/figma.png" 
+                referrerpolicy="strict-origin-when-cross-origin" 
+                allowfullscreen>
+        </iframe>
+      </div>
+      <p class="showcase-cap">Skill Store — Kit integration flow, Figma, 2024</p>
+      <a href="#" class="work-showcase-link">View Figma Frame</a>
+    </div>
+
+  </div>
+</div>
+
+
+
+
+<!-- PROJECTS -->
+<div id="projects">
+  <div class="projects-header appear">
+    <div class="projects-header-num">02</div>
+    <div>
+      <span class="section-label">Writing & Projects</span>
+      <h2 class="section-heading" style="margin-top:8px">Analysis & Case Studies</h2>
+    </div>
+  </div>
+
+  <div class="projects-grid">
+    <div class="proj-card appear">
+      <span class="proj-status">In Progress</span>
+      <p class="proj-type">Case Study</p>
+      <h3 class="proj-title">Onboarding Critique: Where New Users Actually Get Lost</h3>
+      <p class="proj-body">A screen-by-screen teardown of onboarding flows from products I actually use. Less about what looks good, more about what the friction reveals about the team's assumptions.</p>
+      <span class="proj-link-inactive">Coming soon</span>
+    </div>
+
+    <div class="proj-card appear" style="transition-delay:.1s">
+      <span class="proj-status">In Progress</span>
+      <p class="proj-type">Prompt Engineering</p>
+      <h3 class="proj-title">How I Built a Film Using Only JSON Prompts and Gemini</h3>
+      <p class="proj-body">A transparent breakdown of the prompt system behind the 1B Summit AI film — the structure, what failed, what worked, and what that process taught me about working with generative models.</p>
+      <span class="proj-link-inactive">Coming soon</span>
+    </div>
+
+    <div class="proj-card appear">
+      <span class="proj-status">In Progress</span>
+      <p class="proj-type">Redesign Exercise</p>
+      <h3 class="proj-title">Unsolicited Redesign — [App TBD]</h3>
+      <p class="proj-body">Picking a product I use regularly, identifying one specific flow that doesn't work, and redesigning it with documented rationale. One real problem, treated seriously.</p>
+      <span class="proj-link-inactive">Coming soon</span>
+    </div>
+
+    <div class="proj-card appear" style="transition-delay:.1s">
+      <span class="proj-status complete">Thesis</span>
+      <p class="proj-type">Full Case Study</p>
+      <h3 class="proj-title">Beit La Beit — Delivery Platform Research to Prototype</h3>
+      <p class="proj-body">The complete process behind the delivery platform: problem framing, market gaps, stakeholder interviews, requirements, design decisions, and how the prototype held up against existing products.</p>
+      <a href="/Users/rama/Desktop/uni/docs/portfolio/Beit La Beit demo-3.pdf" target="_blank" rel="noopener" class="proj-link">View</a>
+    </div>
+  </div>
+</div>
+
+<!-- BACKGROUND -->
+<div id="background">
+  <div class="bg-col appear">
+    <p class="bg-section-label">Experience</p>
+
+    <div class="bg-item">
+      <div class="bg-item-row">
+        <span class="bg-item-title">Skill Store</span>
+        <span class="bg-item-date">2024 — Present</span>
+      </div>
+      <p class="bg-item-sub">Product · Dubai</p>
+      <p class="bg-item-desc">Works directly with the founders on product. Owns the third-party integration feature — from Figma design through compliance research and live client troubleshooting.</p>
+    </div>
+
+    <div class="bg-item">
+      <div class="bg-item-row">
+        <span class="bg-item-title">Redirect Tech</span>
+        <span class="bg-item-date">2024</span>
+      </div>
+      <p class="bg-item-sub">Technical Product Analyst Intern</p>
+      <p class="bg-item-desc">Attended and contributed to the 1 Billion Followers Summit. Produced an AI film using Gemini for the summit's AI film award — engineering all prompts and handling the full production pipeline.</p>
+    </div>
+  </div>
+
+  <div class="bg-col appear" style="transition-delay:.1s">
+    <p class="bg-section-label">Education</p>
+
+    <div class="bg-item">
+      <div class="bg-item-row">
+        <span class="bg-item-title">Loughborough University</span>
+        <span class="bg-item-date">2022 — 2025</span>
+      </div>
+      <p class="bg-item-sub">BSc Computer Science</p>
+      <p class="bg-item-desc">Final year project: Beit La Beit — delivery booking and payment software for homemade micro-businesses in Dubai. Agile methodology, primary market research, full interactive prototype.</p>
+    </div>
+
+    <div class="bg-item" style="margin-top:32px">
+      <p class="bg-section-label">Elsewhere</p>
+      <p class="bg-item-desc" style="margin-top:12px">
+        1 Billion Followers Summit, Dubai &nbsp;·&nbsp; AI Film Competition Participant &nbsp;·&nbsp; Loughborough CS Society
+      </p>
+    </div>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer id="contact">
+  <div class="footer-left appear">
+    <h2 class="footer-headline">
+      Let's work<br>
+      on something<br>
+      worth doing.
+    </h2>
+    <a href="mailto:rama.saadeh@email.com" class="footer-email">rama.saadeh@email.com</a>
+    <p class="footer-credit" style="margin-top:48px">© 2025 Rama Saadeh</p>
+  </div>
+
+  <div class="footer-right appear" style="transition-delay:.1s">
+    <div class="footer-links">
+      <a href="https://linkedin.com/in/ramasaadeh" target="_blank" rel="noopener" class="footer-link">
+        LinkedIn <span>↗</span>
+      </a>
+      <a href="https://beitlabeit.framer.website" target="_blank" rel="noopener" class="footer-link">
+        Beit La Beit Prototype <span>↗</span>
+      </a>
+      <a href="https://youtu.be/DkIgQywGrwE?si=TJKZJTPBeAd4gtY3" target="_blank" rel="noopener" class="footer-link">
+        AI Film — YouTube <span>↗</span>
+      </a>
+    </div>
+    <p class="footer-credit">Designed & built — 2025</p>
+  </div>
+</footer>
+
+<script>
+const obs = new IntersectionObserver((entries) => {
+  entries.forEach(e => {
+    if (e.isIntersecting) e.target.classList.add('in');
+  });
+}, { threshold: 0.07 });
+
+document.querySelectorAll('.appear').forEach(el => obs.observe(el));
+
+// Hero fires immediately
+document.querySelectorAll('.hero .appear').forEach(el => {
+  setTimeout(() => el.classList.add('in'), 80);
+});
+</script>
+</body>
+</html>
